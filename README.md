@@ -62,14 +62,7 @@ export TORCH_CUDA_ARCH_LIST="7.5;8.6;8.9;9.0"
 python3 -m pip install --editable .
 ```
 
-### Installing (with pip)
-```bash
-# optional: specify GPU architectures
-export TORCH_CUDA_ARCH_LIST="7.5;8.6;8.9;9.0"
-
-pip install --no-build-isolation git+https://github.com/princeton-vl/lietorch.git
-```
-
+### Running Examples
 
 To run the examples, you will need these additional libraries
 ```bash
