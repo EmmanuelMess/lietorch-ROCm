@@ -39,8 +39,8 @@ source .venv/bin/activate
 # CPU
 export TORCH_INDEX=https://download.pytorch.org/whl/cpu
 
-# ROCm (See https://pytorch.org/get-started/previous-versions/)
-export TORCH_INDEX=https://download.pytorch.org/whl/rocm6.2
+# ROCm
+export TORCH_INDEX=https://download.pytorch.org/whl/rocm6.3
 
 # Deal with some issues:
 export HIP_VISIBLE_DEVICES=0
@@ -49,9 +49,9 @@ export HSA_OVERRIDE_GFX_VERSION=10.3.0
 # CUDA 11.8
 export TORCH_INDEX=https://download.pytorch.org/whl/cu118
 # CUDA 12.1
-export TORCH_INDEX=https://download.pytorch.org/whl/cu121
+export TORCH_INDEX=https://download.pytorch.org/whl/cu126
 # CUDA 12.4
-export TORCH_INDEX=https://download.pytorch.org/whl/cu124
+export TORCH_INDEX=https://download.pytorch.org/whl/cu128
 
 python3 -m pip install torch torchvision torchaudio --index-url ${TORCH_INDEX}
 
