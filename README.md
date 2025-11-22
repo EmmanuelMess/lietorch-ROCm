@@ -35,13 +35,31 @@ python3 -m venv .venv
 source .venv/bin/activate
 
 # install requirements
-pip install torch torchvision torchaudio wheel
+# Pytorch (see https://pytorch.org/)
+# CPU
+export TORCH_INDEX=https://download.pytorch.org/whl/cpu
+
+# ROCm (See https://pytorch.org/get-started/previous-versions/)
+export TORCH_INDEX=https://download.pytorch.org/whl/rocm6.2
+
+# Deal with some issues:
+export HIP_VISIBLE_DEVICES=0
+export HSA_OVERRIDE_GFX_VERSION=10.3.0
+
+# CUDA 11.8
+export TORCH_INDEX=https://download.pytorch.org/whl/cu118
+# CUDA 12.1
+export TORCH_INDEX=https://download.pytorch.org/whl/cu121
+# CUDA 12.4
+export TORCH_INDEX=https://download.pytorch.org/whl/cu124
+
+python3 -m pip install torch torchvision torchaudio --index-url ${TORCH_INDEX}
 
 # optional: specify GPU architectures
 export TORCH_CUDA_ARCH_LIST="7.5;8.6;8.9;9.0"
 
 # install lietorch
-pip install --no-build-isolation .
+python3 -m pip install --editable .
 ```
 
 ### Installing (with pip)
