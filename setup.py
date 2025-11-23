@@ -29,14 +29,16 @@ if torch.cuda.is_available() and torch.version.cuda:
                 os.path.join(ROOT, "eigen")],
             sources=sources_backends,
             extra_compile_args={
-                "cxx": ["-O2"], 
+                "cores": ["j"],
+                "cxx": ["-O2", "-j"], 
                 "nvcc": ["-O2"],
             }),
 
         CUDAExtension("lietorch_extras", 
             sources=sources_extras,
             extra_compile_args={
-                "cxx": ["-O2"], 
+                "cores": ["j"],
+                "cxx": ["-O2", "-j"], 
                 "nvcc": ["-O2"],
             }),
     ]
@@ -49,6 +51,7 @@ elif torch.cuda.is_available() and torch.version.hip:
                 os.path.join(ROOT, "eigen")],
             sources=sources_backends,
             extra_compile_args={
+                "cores": ["j"],
                 "hipcc": ['-O3'],
                 "cxx": ['-O3']
             }),
@@ -56,6 +59,7 @@ elif torch.cuda.is_available() and torch.version.hip:
         CUDAExtension("lietorch_extras", 
             sources=sources_extras,
             extra_compile_args={
+                "cores": ["j"],
                 "hipcc": ['-O3'],
                 "cxx": ['-O3']
             }),
