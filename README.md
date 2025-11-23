@@ -67,6 +67,14 @@ pip install opencv-python open3d scipy pyyaml
 
 ### Running Tests
 
+If you have AMD GPU:
+
+```
+export HSA_OVERRIDE_GFX_VERSION=10.3.0
+export HIP_VISIBLE_DEVICES=0
+```
+
+
 After building, you can run the tests
 ```bash
 ./run_tests.sh
@@ -104,6 +112,14 @@ Each group supports the following differentiable operations:
 
 
 &nbsp;
+
+To run on AMD GPU set first:
+```
+export HSA_OVERRIDE_GFX_VERSION=10.3.0
+export HIP_VISIBLE_DEVICES=0
+```
+See https://github.com/ROCm/ROCm/issues/2536.
+
 ### Simple Example:
 Compute the angles between all pairs of rotation matrices
 
