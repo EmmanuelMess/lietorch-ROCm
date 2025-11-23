@@ -21,6 +21,7 @@ sources_extras = [
 ]
 
 if torch.cuda.is_available() and torch.version.cuda:
+    print("Run with NVIDIA GPU")
     ext_modules = [
         CUDAExtension("lietorch_backends", 
             include_dirs=[
@@ -40,6 +41,7 @@ if torch.cuda.is_available() and torch.version.cuda:
             }),
     ]
 elif torch.cuda.is_available() and torch.version.hip:
+    print("Run with AMD GPU")
     ext_modules = [
         CUDAExtension("lietorch_backends", 
             include_dirs=[
@@ -59,7 +61,7 @@ elif torch.cuda.is_available() and torch.version.hip:
             }),
     ]
 else:
-    ext_modules = []
+    print("Run with CPU (unsupported)")
 
 
 setup(

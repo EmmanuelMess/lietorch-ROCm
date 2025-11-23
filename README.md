@@ -42,10 +42,6 @@ export TORCH_INDEX=https://download.pytorch.org/whl/cpu
 # ROCm
 export TORCH_INDEX=https://download.pytorch.org/whl/rocm6.3
 
-# Deal with some issues:
-export HIP_VISIBLE_DEVICES=0
-export HSA_OVERRIDE_GFX_VERSION=10.3.0
-
 # CUDA 11.8
 export TORCH_INDEX=https://download.pytorch.org/whl/cu118
 # CUDA 12.1
@@ -59,7 +55,7 @@ python3 -m pip install torch torchvision torchaudio --index-url ${TORCH_INDEX}
 export TORCH_CUDA_ARCH_LIST="7.5;8.6;8.9;9.0"
 
 # install lietorch
-python3 -m pip install --editable .
+python3 -m pip install . --extra-index-url ${TORCH_INDEX}
 ```
 
 ### Running Examples
